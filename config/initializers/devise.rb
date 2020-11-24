@@ -271,7 +271,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :paypal_openid, 'ASXbunSMf3ZlafxNle21wV5W0k9jcHXkj5MdaalfVtAeUK23JG_5gPptN_5TNR0YOEN5AROdUS6No7-B', 'EDDgKCckKMtnJyRtRSpmZbkTTerd0UR14Zon6KUVpbUsjZh1iQnJ8E6VuAUaE2zn8ZGLgicz5Fv5fb-z'
+  config.omniauth :paypal_oauth2, ENV['PAYPAL_APP_ID'], ENV['PAYPAL_TOKEN'], sandbox: true, scope: "openid profile email"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
