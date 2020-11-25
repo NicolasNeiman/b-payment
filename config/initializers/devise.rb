@@ -271,7 +271,8 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :coinbase, ENV['COINBASE_CLIENT_ID'], ENV['COINBASE_SECRET_ID'], scope: 'wallet:user:email wallet:accounts:read wallet:payment-methods:read wallet:sells:create wallet:withdrawals:create'
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
