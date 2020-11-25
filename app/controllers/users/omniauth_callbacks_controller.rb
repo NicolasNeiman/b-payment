@@ -8,6 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
       set_flash_message(:notice, :success, kind: "Coinbase") if is_navigational_format?
+      CoinbasePaypalIdRecoveryService.call(@user)
     else
       session["devise.coinbase_data"] = request.env["omniauth.auth"].except(:extra) # Removing extra as it can overflow some session stores
       redirect_to new_user_registration_url
