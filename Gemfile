@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'money-rails', '~>1.12'
 gem 'devise'
 gem "omniauth-coinbase"
+gem "httparty"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
