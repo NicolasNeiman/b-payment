@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_173613) do
+ActiveRecord::Schema.define(version: 2020_11_26_101413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "USD", null: false
+    t.integer "bitcoin_amount_cents", default: 0, null: false
+    t.string "bitcoin_amount_currency", default: "BTC", null: false
+    t.string "url"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,8 +37,15 @@ ActiveRecord::Schema.define(version: 2020_11_23_173613) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "provider"
     t.string "uid"
+    t.string "name"
+    t.string "coinbase_token"
+    t.boolean "coinbase_token_expires"
+    t.integer "coinbase_token_expires_at"
+    t.string "coinbase_refresh_token"
+    t.string "coinbase_paypal_account_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "transactions", "users"
 end
