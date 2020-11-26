@@ -36,6 +36,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'faker'
+gem 'simple_token_authentication'
 
 group :development, :test do
   gem 'pry-byebug'
