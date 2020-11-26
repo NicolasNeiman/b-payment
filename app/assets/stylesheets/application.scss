@@ -15,3 +15,7 @@
 .content-wrapper {
   min-height: calc(100vh - 80px - 150px);
 }
+
+body {
+  overflow-x: hidden;
+}

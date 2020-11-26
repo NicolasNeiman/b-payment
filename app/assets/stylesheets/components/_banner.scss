@@ -8,7 +8,10 @@
   background-color: $lightblue;
   clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
   position: absolute;
-  top: 0;
+}
+
+.row {
+  width: 100%;
 }
 
 .banner h1 {
@@ -43,7 +46,6 @@
 
 .people-image {
   width: 600px;
-  z-index: 2;
 }
 
 @media(max-width: 992px) {
