@@ -5,17 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "the seed begin"
+puts "deleting all transactions"
+
+Transaction.delete_all
+
+puts "the seed begins"
+
 Money.add_rate("USD", "BTC", 0.000052)
 30.times do
   amount = rand(100..10000)
  transac = Transaction.new(
-  user_id: 1,
+  user_id: User.last.id,
   amount_cents: amount,
   amount_currency: "USD",
   bitcoin_amount_cents: (Money.us_dollar(amount).exchange_to("BTC")*100000000).to_f,
-  url: Faker::Internet.email,
+  url: Faker::Internet.url,
   )
   transac.save!
 end
-puts "the seed is finish"
+puts "the seed is finished"
