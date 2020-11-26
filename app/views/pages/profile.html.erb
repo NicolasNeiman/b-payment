@@ -1,6 +1,8 @@
-<h2>Hello <%= current_user.name %> </h2>
+<div class="page-container">
+  <h2>Hello <%= current_user.name %> </h2>
 
-  <%- User.omniauth_providers.each do |provider| %>
-    <%= link_to "Connect your #{OmniAuth::Utils.camelize(provider)} Wallet",
-    omniauth_authorize_path(current_user, provider) %>
-  <% end %>
+    <%- User.omniauth_providers.each do |provider| %>
+      <%= link_to "Connect your #{OmniAuth::Utils.camelize(provider)} Wallet",
+      omniauth_authorize_path(current_user, provider) %>
+    <% end %>
+</div>
