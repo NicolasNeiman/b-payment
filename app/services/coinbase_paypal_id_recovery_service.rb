@@ -17,8 +17,14 @@ class CoinbasePaypalIdRecoveryService < ApplicationService
       "Authorization" => "Bearer #{user.coinbase_token}"
     }
     payment_methods = HTTParty.get(url, :headers => headers)["data"]
-    paypal_accounts = payment_methods.select { |payment_method| payment_method["type"] == "paypal_account"}
-    paypal_account = paypal_accounts.first
-    return paypal_account["id"]
+    paypal_account = payment_methods.find { |payment_method| payment_method["type"] == "paypal_account"}
+
+    begin
+      paypal_account_id = paypal_account["id"]
+    rescue
+      paypal_account_id = nil
+    end
+
+    return paypal_account_id
   end
 end
