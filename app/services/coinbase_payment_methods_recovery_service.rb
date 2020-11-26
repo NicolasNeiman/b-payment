@@ -6,17 +6,17 @@ class CoinbasePaymentMethodsRecoveryService < ApplicationService
   def call
     payment_methods = get_payment_methods
     @user.coinbase_paypal_account_id = paypal_account_id(payment_methods)
-    @user.eur_account_id = eur_account_id(payment_methods)
+    @user.coinbase_eur_account_id = eur_account_id(payment_methods)
     @user.save
   end
 
   private
 
-  def get_payment_methods(user)
+  def get_payment_methods
     url = "https://api.coinbase.com/v2/payment-methods"
     headers = {
       "Content-Type"  => "application/json",
-      "Authorization" => "Bearer #{user.coinbase_token}"
+      "Authorization" => "Bearer #{@user.coinbase_token}"
     }
     return HTTParty.get(url, :headers => headers)["data"]
   end
@@ -33,12 +33,14 @@ class CoinbasePaymentMethodsRecoveryService < ApplicationService
 
   def eur_account_id(payment_methods)
     eur_account = payment_methods.find do |payment_method|
-      payment_method["type"] == "fiat_account" & payment_method["name"] == "EUR Wallet"
+      payment_method["type"] == "fiat_account" && payment_method["name"] == "EUR Wallet"
     end
     begin
       eur_account_id = eur_account["id"]
     rescue
       eur_account_id = nil
     end
-  end 
+
+    return eur_account_id
+  end
 end
