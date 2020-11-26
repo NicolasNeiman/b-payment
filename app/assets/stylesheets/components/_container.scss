@@ -1,14 +1,10 @@
 .page-container {
   width: 700px;
+  height: 100%;
   margin: 50px auto;
 }
 
 .blue-background {
-  position: absolute;
-  width: 1441px;
-  height: 851px;
-  left: -1px;
-  top: 179px;
   background-color: $lightblue;
 }
 
