@@ -1,0 +1,43 @@
+<div class="page-container">
+  <h2>Your dashboard</h2>
+  <h3><%= current_user.name %></h3>
+  <div class="row mt-5 d-flex justify-content-around">
+    <div class="number-transactions d-flex flex-column text-center">
+      <span><%= current_user.transactions.count %></span>
+      TRANSACTIONS
+    </div>
+    <div class="amount-transferred d-flex flex-column text-center">
+      <span><%= humanized_money_with_symbol current_user.transactions.sum(:amount_cents) %></span>
+      TRANSFERRED
+    </div>
+  </div>
+    <div class="row mt-5">
+      <div class="">
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Fiat amount</th>
+              <th scope="col">Site URL</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% current_user.transactions.each do |transaction| %> 
+            <tr>
+              <td><%= transaction.created_at %></td>
+              <td><%= humanized_money_with_symbol transaction.amount_cents %></td>
+              <td><%= transaction.url %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        </div>
+      </div>
+      <div class="">
+        <div class="crypto-table">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
