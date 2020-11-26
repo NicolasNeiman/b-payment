@@ -14,11 +14,11 @@
     }
   }
 
-  .coinbase-logo {
-    width: 200px;
-  }
-
   &:focus {
     border-color: none;
   }
+}
+
+.coinbase-logo {
+  width: 200px;
 }
