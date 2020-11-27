@@ -16,10 +16,7 @@
       <% else %>
         <button class="d-flex justify-content-between align-items-center pr-4 base-btn coinbase-btn">
           <%= image_tag 'logo-coinbase-white.svg', class: "coinbase-logo" %>
-          <%- User.omniauth_providers.each do |provider| %>
-            <%= link_to "Connect your #{OmniAuth::Utils.camelize(provider)} Wallet",
-            omniauth_authorize_path(current_user, provider) %>
-          <% end %>
+          <%= link_to "Connect your Coinbase Wallet", user_coinbase_omniauth_authorize_path %>
         </button>
       <% end %>
     </div>
