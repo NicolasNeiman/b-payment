@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 gem 'money-rails', '~>1.12'
 gem 'devise'
-gem "omniauth-coinbase"
+gem "omniauth-coinbase", github: 'NicolasNeiman/omniauth-coinbase'
 gem "httparty"
 gem 'rack-cors'
 
