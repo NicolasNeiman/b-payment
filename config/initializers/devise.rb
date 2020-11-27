@@ -273,7 +273,6 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :coinbase, ENV['COINBASE_CLIENT_ID'], ENV['COINBASE_SECRET_ID'], scope: 'wallet:user:email wallet:accounts:read wallet:payment-methods:read wallet:sells:create wallet:withdrawals:create', account: 'all'
 
-
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
