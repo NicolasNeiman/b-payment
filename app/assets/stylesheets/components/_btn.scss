@@ -1,13 +1,9 @@
-.coinbase-btn {
-  width: 600px;
-  height: 80px;
+.base-btn {
   background-color: #2D81FF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: none;
 
   a {
     color: white;
-    font-size: 25px;
 
     &:hover {
       text-decoration: none;
@@ -18,7 +14,25 @@
     border-color: none;
   }
 }
+.coinbase-btn {
+  width: 600px;
+  height: 80px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  a {
+    font-size: 25px;
+  }
+}
 
 .coinbase-logo {
   width: 200px;
+}
+
+.extension-btn {
+  width: 240px;
+  height: 35px;
+
+  a {
+    font-size: 20px;
+  }
 }
