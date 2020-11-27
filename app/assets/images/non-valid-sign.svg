@@ -5,9 +5,12 @@
 <style type="text/css">
 	.st0{fill:#FFFFFF;}
 	.st1{fill:#1D1D1B;}
+	.st2{fill:#1D1E1C;}
 </style>
 <g>
-	<circle class="st0" cx="35" cy="47" r="35"/>
+	<g>
+		<circle class="st0" cx="47" cy="41" r="35"/>
+	</g>
+	<polygon class="st2" points="80.1,14.9 73.1,8 47,34.1 20.9,8 14,14.9 40.1,41 14,67.1 21,74 47,48 73.1,74 80,67.1 54,41 	"/>
 </g>
-<path class="st1" d="M34.8,52L14.2,31.6l-7,6.9l27.6,27.4L94,7l-7-6.9L34.8,52z"/>
 </svg>

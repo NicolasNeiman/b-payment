@@ -2,6 +2,7 @@
   background-color: black;
   border: none;
   padding: 8px 24px;
+  color: white;
 
   a {
     color: white;
@@ -30,7 +31,8 @@
 }
 
 .extension-btn {
-  
+  max-width: 300px;
+
   a {
     font-size: 20px;
   }
