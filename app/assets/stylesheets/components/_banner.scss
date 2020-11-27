@@ -1,0 +1,61 @@
+.banner {
+  position: relative;
+}
+
+.background {
+  height: 100%;
+  width: 100%;
+  background-color: $lightblue;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+  position: absolute;
+}
+
+.row {
+  width: 100%;
+}
+
+.banner h1 {
+  margin: 0;
+  color: $darkblue;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 72px;
+  line-height: 95px;
+}
+
+.banner-text {
+  width: 400px;
+}
+
+.banner p {
+  color: black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 48px;
+}
+
+.people {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+.people-image {
+  width: 600px;
+}
+
+@media(max-width: 992px) {
+  .people-image {
+    width: 400px;
+  }
+}
+
+// @media(max-width: 768px) {
+//   .people-image {
+//     width: 300px;
+//   }
+// }
