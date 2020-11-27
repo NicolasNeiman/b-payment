@@ -2,16 +2,15 @@
   width: 900px;
   height: 100%;
   margin: 50px auto;
+  padding-top: 80px;
+  // background-image: linear-gradient(166.68deg, rgba(254, 218, 0, 0.6) 0%, rgba(254, 218, 0, 0.6) 67.74%, rgba(254, 218, 0, 0) 67.75%, rgba(254, 218, 0, 0) 140.93%);
+  // background-position: bottom;
 }
 
 // .home-container {
 //   width: 1000px;
 //   margin: 30px auto;
 // }
-
-.blue-background {
-  background-color: $lightblue;
-}
 
 @media (max-width: 960px) {
   /* For a screen < 960px, this CSS will be read */
