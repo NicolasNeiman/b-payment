@@ -6,6 +6,7 @@
       <% if current_user.all_set? %>
         <div class="all-set-alert d-flex justify-content-between align-items-center pr-5">
           <%= image_tag 'logo-coinbase-color.svg', class: "coinbase-logo" %>
+          <%= image_tag 'valid-sign.svg', class: "valid-sign" %>
           All set!
         </div>
       <% elsif current_user.coinbase_token? %>
