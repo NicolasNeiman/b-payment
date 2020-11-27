@@ -13,9 +13,11 @@
 @import "pages/index";
 
 .content-wrapper {
-  min-height: calc(100vh - 80px - 150px);
+  min-height: calc(100vh - 150px);
 }
 
 body {
   overflow-x: hidden;
+  &:before {   
+  }
 }
