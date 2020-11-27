@@ -3,11 +3,11 @@
   <h3><%= current_user.name %></h3>
   <div class="row mt-5 d-flex justify-content-around">
     <div class="number-transactions d-flex flex-column text-center">
-      <span><%= current_user.transactions.count %></span>
+      <span class="figures"><%= current_user.transactions.count %></span>
       TRANSACTIONS
     </div>
     <div class="amount-transferred d-flex flex-column text-center">
-      <span><%= humanized_money_with_symbol current_user.transactions.sum(:amount_cents) %></span>
+      <span class="figures"><%= humanized_money_with_symbol current_user.transactions.sum(:amount_cents) %></span>
       TRANSFERRED
     </div>
   </div>

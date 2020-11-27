@@ -1,6 +1,4 @@
 <div class="banner">
-  <%# <div class="background">
-  </div> %>
   <div class="row p-5">
     <div class="col-9">
         <h1>THE SIMPLE PAYMENT SOLUTION</h1>
@@ -19,6 +17,23 @@
 
 <div class="row p-5">
   <div class="home-container text-center">
-    <h1>How it works</h1>
+    <h1>How it <span class="surligne">works</span></h1>
+    <div class="row">
+      <div class="col-4">
+        <%= image_tag 'easy.svg', class: "coinbase-logo" %>
+        <h3>Easy</h3>
+        <p class="m-0">Use the extension whenever you're shopping</p>
+      </div>
+      <div class="col-4">
+        <%= image_tag 'instantly.svg', class: "coinbase-logo" %>
+        <h3>Instant</h3>
+        <p class="m-0">B-payments extension allows you to pay instantly</p>
+      </div>
+      <div class="col-4">
+        <%= image_tag 'secure.svg', class: "coinbase-logo" %>
+        <h3>Secure</h3>
+        <p class="m-0">B-payments makes sure your data stays safe</p>
+      </div>
+    </div>
   </div>
 </div>
