@@ -4,19 +4,20 @@ class CoinbaseEurBalanceRecoveryService < ApplicationService
   end
 
   def call
-    
-    get_balance(@user.coinbase_eur_account_id)
-  end
+    return { "error" => "We don't have an eur account" } unless @user.coinbase_eur_account_id
 
-  private
-
-  def get_balance(account_id)
-    url = "https://api.coinbase.com/v2/accounts/#{account_id}"
+    url = "https://api.coinbase.com/v2/accounts/#{@user.coinbase_eur_account_id}"
     headers = {
       "Content-Type"  => "application/json",
       "Authorization" => "Bearer #{@user.coinbase_token}"
     }
-    account = HTTParty.get(url, :headers => headers)["data"]
-    return account["balance"]
+
+    begin
+      balance = HTTParty.get(url, :headers => headers)["data"]["balance"]
+    rescue
+      balance = { "error" => "We were not able to retrieve the balance" }
+    end
+
+    return balance
   end
 end
