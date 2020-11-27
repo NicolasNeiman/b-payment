@@ -1,6 +1,7 @@
 .base-btn {
   background-color: black;
   border: none;
+  padding: 8px 24px;
 
   a {
     color: white;
@@ -29,9 +30,7 @@
 }
 
 .extension-btn {
-  width: 240px;
-  height: 35px;
-
+  
   a {
     font-size: 20px;
   }
