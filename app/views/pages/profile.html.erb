@@ -18,7 +18,7 @@
           <%= image_tag 'logo-coinbase-white.svg', class: "coinbase-logo" %>
           <%- User.omniauth_providers.each do |provider| %>
             <%= link_to "Connect your #{OmniAuth::Utils.camelize(provider)} Wallet",
-            omniauth_authorize_path(current_user, provider) %>
+            omniauth_authorize_path(current_user, provider, account: :all) %>
           <% end %>
         </button>
       <% end %>
