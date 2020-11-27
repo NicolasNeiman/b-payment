@@ -1,0 +1,13 @@
+h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 56px;
+  line-height: 95px;
+
+  .surligne {
+    color: white;
+    background: $yellow;
+    padding: 0 5px;
+  }
+}
+
