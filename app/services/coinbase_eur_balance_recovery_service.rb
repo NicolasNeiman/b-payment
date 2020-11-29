@@ -13,7 +13,7 @@ class CoinbaseEurBalanceRecoveryService < ApplicationService
     }
 
     begin
-      balance = HTTParty.get(url, :headers => headers)["data"]["balance"]
+      balance = HTTParty.get(url, headers: headers)["data"]["balance"]
     rescue
       balance = { "error" => "We were not able to retrieve the balance" }
     end
