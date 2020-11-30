@@ -5,6 +5,7 @@ class CoinbaseSellBtcService < ApplicationService
   end
 
   def call
+    CoinbaseRefreshTokenRecoveryService.call(@user)
     sell(@sell_amount)
   end
 

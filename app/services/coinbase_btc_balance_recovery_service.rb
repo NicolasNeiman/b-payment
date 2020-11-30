@@ -4,6 +4,7 @@ class CoinbaseBtcBalanceRecoveryService < ApplicationService
   end
 
   def call
+    CoinbaseRefreshTokenRecoveryService.call(@user)
     return { "error" => "We don't have an eur account" } unless @user.coinbase_btc_account_id
 
     url = "https://api.coinbase.com/v2/accounts/#{@user.coinbase_btc_account_id}"
