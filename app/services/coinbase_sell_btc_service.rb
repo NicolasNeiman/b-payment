@@ -1,10 +1,11 @@
 class CoinbaseSellBtcService < ApplicationService
-  def initialize(user)
+  def initialize(user, sell_amount)
     @user = user
+    @sell_amount = sell_amount
   end
 
-  def call(sell_amount)
-    sell(sell_amount)
+  def call
+    sell(@sell_amount)
   end
 
   private
