@@ -14,4 +14,3 @@ class Api::V1::Users::SessionsController < Api::V1::BaseController
     params.require(:user).permit(:email, :password)
   end
 end
-
