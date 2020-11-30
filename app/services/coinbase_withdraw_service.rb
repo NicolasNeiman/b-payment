@@ -17,6 +17,7 @@ class CoinbaseWithdrawService < ApplicationService
       return { "success" => "#{@withdraw_amount} EUR was withdraw and sent to your PayPal account" }
     else
       return {"error" => "We didn't manage to transfer #{@withdraw_amount} EUR to your account"}
+    end
   end
 
 
