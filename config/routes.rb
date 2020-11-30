@@ -11,8 +11,9 @@ Rails.application.routes.draw do
       namespace :users do
         resources :sessions, only: [:create]
       end
-      namespace :transactions do
+      namespace :coinbase do
         get 'balance', to: "balances#show"
+        post 'sell', to: "transactions#create"
       end
     end
   end

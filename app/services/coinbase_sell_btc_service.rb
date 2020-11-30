@@ -4,6 +4,7 @@ class CoinbaseSellBtcService < ApplicationService
   end
 
   def call(sell_amount)
+    puts "hello from call"
     sell(sell_amount)
   end
 

@@ -1,4 +1,4 @@
-class Api::V1::Transactions::BalancesController < Api::V1::BaseController
+class Api::V1::Coinbase::BalancesController < Api::V1::BaseController
 
   def show
     user = User.find_by!(email: user_params[:email])
@@ -16,11 +16,3 @@ class Api::V1::Transactions::BalancesController < Api::V1::BaseController
     params.permit(:email, :token)
   end
 end
-
-# curl http://localhost:3000/api/v1/transactions/balance \
-#   -d email=mondaytest@gmail.com  \
-#   -d token=aUHopL2G3jM6PynUtDcJ
-
-#   curl -i -X GET \
-#        -d ' { { "email": "mondaytest@gmail.com", "token": "aUHopL2G3jM6PynUtDcJ" } } ' \
-#        http://localhost:3000/api/v1/transactions/balance
