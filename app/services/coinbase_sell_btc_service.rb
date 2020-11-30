@@ -17,7 +17,7 @@ class CoinbaseSellBtcService < ApplicationService
         "Authorization" => "Bearer #{@user.coinbase_token}"
       },
       body: {
-        "amount" => sell_amount,
+        "total" => sell_amount,
         "currency" => "EUR",
         "payment_method" => @user.coinbase_eur_payment_method_id
       }.to_json
