@@ -7,10 +7,11 @@ class CoinbasePaymentMethodsRecoveryService < ApplicationService
     payment_methods = get_payment_methods
     @user.coinbase_paypal_account_id = get_paypal_account_id(payment_methods)
     eur_account = get_eur_account(payment_methods)
-    @user.coinbase_eur_account_id = eur_account[:eur_account_id]
-    @user.coinbase_eur_payment_method_id = eur_account[:eur_payment_method_id]
-    @user.coinbase_btc_account_id = get_btc_account["id"]
-    @user.save
+    @user.update(
+      coinbase_eur_account_id: eur_account[:eur_account_id],
+      coinbase_eur_payment_method_id: eur_account[:eur_payment_method_id],
+      coinbase_btc_account_id: get_btc_account["id"]
+    )
   end
 
   private
