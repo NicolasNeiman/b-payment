@@ -11,6 +11,9 @@ Rails.application.routes.draw do
       namespace :users do
         resources :sessions, only: [:create]
       end
+      namespace :transactions do
+        get 'balance', to: "balances#show"
+      end
     end
   end
 end
