@@ -9,6 +9,7 @@ class CoinbasePaymentMethodsRecoveryService < ApplicationService
     eur_account = get_eur_account(payment_methods)
     @user.coinbase_eur_account_id = eur_account[:eur_account_id]
     @user.coinbase_eur_payment_method_id = eur_account[:eur_payment_method_id]
+    @user.coinbase_btc_account_id = get_btc_account["id"]
     @user.save
   end
 
@@ -52,5 +53,14 @@ class CoinbasePaymentMethodsRecoveryService < ApplicationService
     }
 
     return eur_account
+  end
+
+  def get_btc_account
+    url = "https://api.coinbase.com/v2/accounts/BTC"
+    headers = {
+      "Content-Type"  => "application/json",
+      "Authorization" => "Bearer #{@user.coinbase_token}"
+    }
+    return HTTParty.get(url, :headers => headers)["data"]
   end
 end
