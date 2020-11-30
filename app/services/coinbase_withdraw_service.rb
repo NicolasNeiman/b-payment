@@ -1,12 +1,13 @@
 class CoinbaseWithdrawService < ApplicationService
-  def initialize(user)
+  def initialize(user, withdraw_amount)
     @user = user
     @payment_method_id = @user.coinbase_paypal_account_id
     @coinbase_eur_account_id = @user.coinbase_eur_account_id
+    @withdraw_amount = withdraw_amount
   end
 
-  def call(withdraw_amount)
-    withdraw(withdraw_amount)
+  def call
+    withdraw(@withdraw_amount)
   end
 
   private
