@@ -7,6 +7,7 @@ class CoinbaseWithdrawService < ApplicationService
   end
 
   def call
+    CoinbaseRefreshTokenRecoveryService.call(@user)
     withdraw(@withdraw_amount)
   end
 

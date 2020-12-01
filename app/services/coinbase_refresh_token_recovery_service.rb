@@ -1,17 +1,18 @@
 class CoinbaseRefreshTokenRecoveryService < ApplicationService
+  REFRESH_TIME_MINUTES = 90
   def initialize(user)
     @user = user
   end
 
   def call
-    refresh_tokens = get_refresh_tokens(@user)
-
-    if refresh_tokens["refresh_token"] && refresh_tokens["access_token"]
-      @user.update(
-        coinbase_token: refresh_tokens["access_token"],
-        coinbase_refresh_token: refresh_tokens["refresh_token"]
-      )
-    end
+    if Time.now - @user.updated_at > 60 * REFRESH_TIME_MINUTES || @user.coinbase_token.nil?
+      refresh_tokens = get_refresh_tokens(@user)
+        if refresh_tokens["refresh_token"] && refresh_tokens["access_token"]
+          @user.update(
+            coinbase_token: refresh_tokens["access_token"],
+            coinbase_refresh_token: refresh_tokens["refresh_token"]
+          )
+        end
   end
 
   def get_refresh_tokens(user)
