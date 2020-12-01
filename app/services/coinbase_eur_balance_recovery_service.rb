@@ -12,13 +12,7 @@ class CoinbaseEurBalanceRecoveryService < ApplicationService
       "Content-Type"  => "application/json",
       "Authorization" => "Bearer #{@user.coinbase_token}"
     }
-
-    coinbase_api_answer = HTTParty.get(url, headers: headers)
-
-    if coinbase_api_answer.keys.include? "data"
-      balance = coinbase_api_answer["data"]["balance"]
-    elsif coinbase_api_answer.keys.include? "data"
-      
+     
     begin
       balance = HTTParty.get(url, headers: headers)["data"]["balance"]
     rescue
