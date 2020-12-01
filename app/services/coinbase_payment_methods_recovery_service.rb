@@ -4,6 +4,7 @@ class CoinbasePaymentMethodsRecoveryService < ApplicationService
   end
 
   def call
+    CoinbaseRefreshTokenRecoveryService.call(@user)
     payment_methods = get_payment_methods
     eur_account = get_eur_account(payment_methods)
     @user.update(

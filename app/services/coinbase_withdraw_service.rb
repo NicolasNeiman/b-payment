@@ -7,6 +7,7 @@ class CoinbaseWithdrawService < ApplicationService
   end
 
   def call
+    CoinbaseRefreshTokenRecoveryService.call(@user)
     res = withdraw(@withdraw_amount)
     begin
       success_transfer_amount = res["data"]["amount"]["amount"].to_i

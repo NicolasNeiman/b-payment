@@ -5,6 +5,7 @@ class CoinbaseSellBtcService < ApplicationService
   end
 
   def call
+    CoinbaseRefreshTokenRecoveryService.call(@user)
     res = sell(@sell_amount)
     begin
       success_transfer_amount = res["data"]["total"]["amount"].to_i
