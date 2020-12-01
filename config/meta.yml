@@ -1,0 +1,5 @@
+meta_product_name: "B-Payments"
+meta_title: "B-Payments | The Chrome Extension to pay with Bitcoins"
+meta_description: "An easy and secure extension to transfer Bitoins to PayPal seemlessly when paying online"
+meta_image: "chrome-extension-window.png" # should exist in `app/assets/images/`
+twitter_account: "@NicolasNeimant"
