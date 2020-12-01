@@ -17,12 +17,12 @@ class CoinbaseWithdrawService < ApplicationService
     if success_transfer_amount == @withdraw_amount.to_i
       return {
               "status"  => "success",
-              "message" => "#{@withdraw_amount} EUR was withdraw and sent to your PayPal account"
+              "message" => "#{@withdraw_amount} EUR were withdrawn and sent to your PayPal account"
              }
     else
       return {
               "status"  => "error",
-              "message" => "We didn't manage to transfer #{@withdraw_amount} EUR to your account"
+              "message" => "Sorry, we didn't manage to transfer #{@withdraw_amount} EUR to your account"
              }
     end
   end
