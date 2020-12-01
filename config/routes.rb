@@ -13,7 +13,8 @@ Rails.application.routes.draw do
       end
       namespace :coinbase do
         get 'balance', to: "balances#show"
-        post 'sell', to: "transactions#create"
+        post 'sell', to: "transactions#sell"
+        post 'withdraw', to: "transactions#withdraw"
       end
     end
   end
