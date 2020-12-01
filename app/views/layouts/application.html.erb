@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>B-Payments - The Chrome Extension to pay everywhere with Bitcoins</title>
+    <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,8 +14,6 @@
 
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <%= render 'shared/navbar' %>
-    <p class="notice m-0"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <div class="content-wrapper">
         <%= yield %>
     </div>
