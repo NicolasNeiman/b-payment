@@ -13,6 +13,7 @@ class CoinbaseRefreshTokenRecoveryService < ApplicationService
             coinbase_refresh_token: refresh_tokens["refresh_token"]
           )
         end
+    end
   end
 
   def get_refresh_tokens(user)
