@@ -22,7 +22,7 @@ class CoinbaseWithdrawService < ApplicationService
     else
       return {
               "status"  => "error",
-              "message" => "Sorry, we didn't manage to transfer #{@withdraw_amount} EUR to your account"
+              "message" => "Sorry, we didn't manage to transfer #{@withdraw_amount} EUR to your Paypal account"
              }
     end
   end

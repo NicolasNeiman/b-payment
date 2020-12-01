@@ -15,12 +15,12 @@ class CoinbaseSellBtcService < ApplicationService
     if success_transfer_amount == @sell_amount.to_i
       return {
                 "status" => "success",
-                "message" => "#{@sell_amount} EUR was withdraw and sent to your PayPal account"
+                "message" => "We successfully sold #{@sell_amount} EUR"
              }
     else
       return {
                 "status" => "error",
-                "message" => "We didn't manage to transfer #{@sell_amount} EUR to your account"
+                "message" => "We didn't manage to sell #{@sell_amount} EUR"
              }
     end
   end
