@@ -1,10 +1,10 @@
 class CoinbaseEurBalanceRecoveryService < ApplicationService
   def initialize(user)
     @user = user
+    CoinbaseRefreshTokenRecoveryService.call(@user)
   end
 
   def call
-    CoinbaseRefreshTokenRecoveryService.call(@user)
     return { "error" => "We don't have an eur account" } unless @user.coinbase_eur_account_id
 
     url = "https://api.coinbase.com/v2/accounts/#{@user.coinbase_eur_account_id}"
@@ -12,7 +12,7 @@ class CoinbaseEurBalanceRecoveryService < ApplicationService
       "Content-Type"  => "application/json",
       "Authorization" => "Bearer #{@user.coinbase_token}"
     }
-
+     
     begin
       balance = HTTParty.get(url, headers: headers)["data"]["balance"]
     rescue

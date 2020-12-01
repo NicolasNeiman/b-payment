@@ -4,10 +4,10 @@ class CoinbaseWithdrawService < ApplicationService
     @payment_method_id = @user.coinbase_paypal_account_id
     @coinbase_eur_account_id = @user.coinbase_eur_account_id
     @withdraw_amount = withdraw_amount
+    CoinbaseRefreshTokenRecoveryService.call(@user)
   end
 
   def call
-    CoinbaseRefreshTokenRecoveryService.call(@user)
     res = withdraw(@withdraw_amount)
     begin
       success_transfer_amount = res["data"]["amount"]["amount"].to_i
