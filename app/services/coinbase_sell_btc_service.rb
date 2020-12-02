@@ -6,7 +6,6 @@ class CoinbaseSellBtcService < ApplicationService
   end
 
   def call
-    # binding.pry
     begin
       coinbase_api_answer = HTTParty.post(
         url,
@@ -18,6 +17,19 @@ class CoinbaseSellBtcService < ApplicationService
     end
 
     @sold_amount = coinbase_api_answer.dig("data", "total", "amount")
+    if @sold_amount
+      coinbase_eur_to_btc_exchange_rate_service = CoinbaseEurToBtcExchangeRateService.new
+      rate = coinbase_eur_to_btc_exchange_rate_service.call
+
+      Transaction.create(
+        user: @user,
+        amount_cents: @sold_amount.to_f * 100,
+        amount_currency: "EUR",
+        bitcoin_amount_cents: (@sold_amount.to_f * rate) * 100_000_000,
+        bitcoin_amount_currency: "BTC",
+        url: "www.boulanger.com"
+      )
+    end
   end
 
   def success?
