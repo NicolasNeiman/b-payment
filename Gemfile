@@ -29,6 +29,8 @@ gem 'devise'
 gem "omniauth-coinbase", github: 'NicolasNeiman/omniauth-coinbase'
 gem "httparty"
 gem 'rack-cors'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
