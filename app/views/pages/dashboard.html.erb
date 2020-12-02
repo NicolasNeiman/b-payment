@@ -11,33 +11,17 @@
       TRANSFERRED
     </div>
   </div>
-    <div class="row mt-5">
-      <div class="">
-        <div class="table-wrapper-scroll-y my-custom-scrollbar">
-        <table class="table table-hover">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Date</th>
-              <th scope="col">Fiat amount</th>
-              <th scope="col">Site URL</th>
-            </tr>
-          </thead>
-          <tbody>
-          <% current_user.transactions.each do |transaction| %> 
-            <tr>
-              <td><%= transaction.created_at %></td>
-              <td><%= humanized_money_with_symbol transaction.amount_cents %></td>
-              <td><%= transaction.url %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+  <div class="row">
+    <div class = "col-6 offset-3 grid-container">
+      <% current_user.transactions.each do |transaction| %>
+      <div class="card-product">
+        <i class="fas fa-exchange-alt" id="img"></i>
+        <div class="card-product-infos">
+          <h2><%= transaction.url %></h2>
+          <p><%= humanized_money_with_symbol transaction.amount_cents %> on <strong><%= transaction.created_at %></strong></p>
         </div>
       </div>
-      <div class="">
-        <div class="crypto-table">
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -15,11 +15,11 @@ Money.add_rate("USD", "BTC", 0.000052)
 30.times do
   amount = rand(100..10000)
  transac = Transaction.new(
-  user_id: User.last.id,
+  user_id: "2",
   amount_cents: amount,
-  amount_currency: "USD",
+  amount_currency: "EUR",
   bitcoin_amount_cents: (Money.us_dollar(amount).exchange_to("BTC")*100000000).to_f,
-  url: Faker::Internet.url,
+  url: "JoannaLPB.com",
   )
   transac.save!
 end
