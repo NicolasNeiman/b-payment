@@ -1,7 +1,8 @@
 class CoinbaseSellBtcService < ApplicationService
-  def initialize(user, sell_amount)
+  def initialize(user, sell_amount, url)
     @user = user
     @sell_amount = sell_amount
+    @url = url
     CoinbaseRefreshTokenRecoveryService.call(@user)
   end
 
@@ -27,7 +28,7 @@ class CoinbaseSellBtcService < ApplicationService
         amount_currency: "EUR",
         bitcoin_amount_cents: (@sold_amount.to_f * rate) * 100_000_000,
         bitcoin_amount_currency: "BTC",
-        url: "www.boulanger.com"
+        url: @url
       )
     end
   end
