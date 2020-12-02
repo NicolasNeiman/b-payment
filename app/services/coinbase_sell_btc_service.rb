@@ -6,6 +6,7 @@ class CoinbaseSellBtcService < ApplicationService
   end
 
   def call
+    # binding.pry
     begin
       coinbase_api_answer = HTTParty.post(
         url,
@@ -38,7 +39,7 @@ class CoinbaseSellBtcService < ApplicationService
 
   def body
     {
-      "total" => sell_amount,
+      "total" => @sell_amount,
       "currency" => "EUR",
       "payment_method" => @user.coinbase_eur_payment_method_id
     }.to_json

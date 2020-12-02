@@ -37,7 +37,7 @@ class CoinbaseWithdrawService < ApplicationService
 
   def body
     {
-      "amount" => withdraw_amount,
+      "amount" => @withdraw_amount,
       "currency" => "EUR",
       "payment_method" => @user.coinbase_paypal_account_id
     }.to_json

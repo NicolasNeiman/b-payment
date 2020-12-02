@@ -7,6 +7,7 @@ class Api::V1::Coinbase::TransactionsController < Api::V1::BaseController
     if coinbase_sell_btc_service.success?
       render json: { response: {"status" => "succes"} }, status: :ok
     else
+      # binding.pry
       render json: { response: {"status" => "error"} }, status: :bad_request
     end
   end
