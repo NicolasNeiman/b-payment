@@ -2,6 +2,8 @@ class CoinbaseBtcBalanceRecoveryService < ApplicationService
   def initialize(user)
     @user = user
     CoinbaseRefreshTokenRecoveryService.call(@user)
+    @rate = CoinbaseEurToBtcExchangeRateService.call
+    @balance = nil
   end
 
   def call
@@ -17,8 +19,15 @@ class CoinbaseBtcBalanceRecoveryService < ApplicationService
       coinbase_api_answer = {}
     end
 
-    @balance = coinbase_api_answer.dig("data", "balance")
+    original_balance = coinbase_api_answer.dig("data", "balance")
 
+    unless original_balance.nil?
+      eur_balance = (original_balance["amount"].to_f / @rate).to_s
+      @balance = {
+        "BTC" => original_balance["amount"],
+        "EUR" => eur_balance
+      }
+    end
     return @balance
   end
 
