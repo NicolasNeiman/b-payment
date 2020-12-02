@@ -22,7 +22,7 @@ class CoinbaseBtcBalanceRecoveryService < ApplicationService
     original_balance = coinbase_api_answer.dig("data", "balance")
 
     unless original_balance.nil?
-      eur_balance = (original_balance["amount"].to_f / @rate).to_s
+      eur_balance = (original_balance["amount"].to_f / @rate).round(2).to_s
       @balance = {
         "BTC" => original_balance["amount"],
         "EUR" => eur_balance
