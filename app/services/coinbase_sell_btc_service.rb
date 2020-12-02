@@ -6,7 +6,6 @@ class CoinbaseSellBtcService < ApplicationService
   end
 
   def call
-    # binding.pry
     begin
       coinbase_api_answer = HTTParty.post(
         url,
