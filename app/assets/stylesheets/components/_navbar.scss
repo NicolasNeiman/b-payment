@@ -19,3 +19,7 @@
   width: 40px;
   height: 35px;
 }
+
+.dropdown-toggle::after {
+  border-top: none;
+}
