@@ -28,17 +28,21 @@
   color: black;
 
   &:hover {
-    animation: rotation-right 0.5s ease-in-out;
+    animation: rotation-right 1s ease-in-out;
     // animation: ease-in-out 1s;
   }
 }
 
 @keyframes rotation-right {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
-    transform: rotate(90deg);
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
   }
 }
 
