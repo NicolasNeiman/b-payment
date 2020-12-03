@@ -13,12 +13,20 @@
   background: white;
   display: flex;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.653);
+  border-color: white !important;
 }
 
 #img {
   height: 100%;
   width: 120px;
   object-fit: cover;
+  color: black;
+  width: 120px;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-product h2 {
@@ -38,3 +46,4 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
