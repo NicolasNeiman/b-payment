@@ -1,65 +1,60 @@
 <div class="page-container">
   <h2><span>Dashboard</span></h2>
   <div class="row">
-    <div class="col-6">
-      <h3>Hello <%= current_user.name %>,</h3>
-    </div>
-    <div class="col-6 text-center">
-      <h3>Recent transactions</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-6 d-flex w-100 justify-content-around">
-      <div class="number-transactions">
-        <svg class="circle-shape">
-          <circle class="white-circle" cx="80" cy="80" r="75" fill="none" width="100%" height="100%"></circle>
-        </svg>
-        <div class="d-flex flex-column text-center">
-          <span class="figures"><%= current_user.transactions.count %></span>
-          <p class="circle-text">TRANSACTIONS</p>
+    <div class="col-6 d-flex flex-column w-100 align-items-center">
+      <h3>Hello <%= current_user.name %>  <i class="fas fa-rocket"></i></h3>
+      <div class="d-flex w-100 justify-content-around">
+        <div class="number-transactions">
+          <svg class="circle-shape">
+            <circle class="white-circle" cx="80" cy="80" r="75" fill="none" width="100%" height="100%"></circle>
+          </svg>
+          <div class="d-flex flex-column text-center">
+            <span class="figures"><%= current_user.transactions.count %></span>
+            <p class="circle-text">TRANSACTIONS</p>
+          </div>
+        </div>
+        <div class="number-transactions">
+          <svg class="circle-shape">
+            <circle class="white-circle" cx="80" cy="80" r="75" fill="none" width="100%" height="100%"></circle>
+          </svg>
+          <div class="circle-text d-flex flex-column text-center">
+            <span class="figures"><%= '%.2f' % ( current_user.transactions.sum(:amount_cents).to_f / 100 ) %>€</span>
+            <p class="circle-text">TRANSFERRED</p>
+          </div>
         </div>
       </div>
-      <div class="number-transactions">
-        <svg class="circle-shape">
-          <circle class="white-circle" cx="80" cy="80" r="75" fill="none" width="100%" height="100%"></circle>
-        </svg>
-        <div class="circle-text d-flex flex-column text-center">
-          <span class="figures"><%= humanized_money_with_symbol current_user.transactions.sum(:amount_cents) %></span>
-          <p class="circle-text">TRANSFERRED</p>
-        </div>
-      </div>
-    </div>
-    <div class = "col-6 d-flex justify-content-center flex-column">
-      <% if current_user.transactions.empty? %>
-        <div class="card-product d-flex justify-content-left">
-          <i class="fas fa-exchange-alt ml-4"></i>
-          <div class="card-product-infos">
-            <h2>Waiting for your first transaction</h2>
-         </div>
-        </div>
-      <% else %>
-        <% current_user.transactions.each do |transaction| %>
+      <h3>Your recent transactions</h3>
+      <div class="d-flex flex-column justify-content-left">
+        <% if current_user.transactions.empty? %>
           <div class="card-product d-flex justify-content-left">
             <i class="fas fa-exchange-alt ml-4"></i>
             <div class="card-product-infos">
-              <h2><%= transaction.url %></h2>
-              <p><%= humanized_money_with_symbol transaction.amount_cents %> on <strong><%= transaction.created_at.strftime("%B %d, %Y at %H:%m") %></strong></p>
-            </div>
+              <h2>Waiting for your first transaction</h2>
           </div>
+          </div>
+        <% else %>
+          <% current_user.transactions.each do |transaction| %>
+            <div class="card-product d-flex justify-content-left">
+              <i class="fas fa-exchange-alt ml-4"></i>
+              <div class="card-product-infos">
+                <h2><%= transaction.url %></h2>
+                <p><%= '%.2f' % ( transaction.amount_cents.to_f / 100 ) %>€ on <strong><%= transaction.created_at.strftime("%B %d, %Y at %H:%m") %></strong></p>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>    
     </div>
-  </div>
-  <div class="row">
-    <div class="col-6 offset-3">
+    <div class="col-6 plot-col d-flex w-100 text-center flex-column">
+      <h3>Bitcoin price</h3>
       <div id="plot">
         <div id="chart-1" 
-             style="height: 300px; width: 500px;" 
-             data-payload='<%= @data.to_json %>'
-             data-ymin='<%= @ymin %>'
-             data-ymax='<%= @ymax %>'>
+              style="height: 350px; width: 550px" 
+              data-payload='<%= @data.to_json %>'
+              data-ymin='<%= @ymin %>'
+              data-ymax='<%= @ymax %>'>
         </div>
       </div>
-    </div>
-  </div>
+    </div> 
+  </div>   
 </div>

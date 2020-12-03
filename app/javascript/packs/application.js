@@ -29,34 +29,8 @@ import Chart from "chart.js"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+import { plot } from '../components/plot';
+
 document.addEventListener('turbolinks:load', () => {
-  const plotDiv = document.getElementById('plot');
-  if (plotDiv) {
-    Chartkick.use(Chart)
-    const selector = 'chart-1'
-    const data = document
-      .querySelector(`#${selector}`)
-      .dataset
-    const rawData = JSON.parse(data.payload)
-    const yMin = data.ymin
-    const yMax = data.ymax
-    new Chartkick.LineChart(
-      selector, 
-      rawData, 
-      {
-        points: false,
-        colors: ["#b00", "#666"],
-        thousands: " ",
-        decimal: ",",
-        suffix: "€",
-        min: yMin,
-        max: yMax,
-        label: "BTC-EUR",
-        yAxes: [  {
-          gridLines: {
-            display: false,
-          },
-      }]
-      })
-  }
+  plot();
 });
