@@ -6,9 +6,8 @@ class Api::V1::Coinbase::TransactionsController < Api::V1::BaseController
     coinbase_sell_btc_service = CoinbaseSellBtcService.new(user, sell_amount, url)
     coinbase_sell_btc_service.call
     if coinbase_sell_btc_service.success?
-      render json: { response: {"status" => "succes"} }, status: :ok
+      render json: { response: {"status" => "success"} }, status: :ok
     else
-      # binding.pry
       render json: { response: {"status" => "error"} }, status: :bad_request
     end
   end
@@ -19,7 +18,7 @@ class Api::V1::Coinbase::TransactionsController < Api::V1::BaseController
     coinbase_withdraw_service = CoinbaseWithdrawService.new(user, withdraw_amount)
     coinbase_withdraw_service.call
     if coinbase_withdraw_service.success?
-      render json: { response: {"status" => "succes"} }, status: :ok
+      render json: { response: {"status" => "success"} }, status: :ok
     else
       render json: { response: {"status" => "error"} }, status: :bad_request
     end
