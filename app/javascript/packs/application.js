@@ -34,20 +34,29 @@ document.addEventListener('turbolinks:load', () => {
   if (plotDiv) {
     Chartkick.use(Chart)
     const selector = 'chart-1'
-    const data = JSON.parse(
-      document
-        .querySelector(`#${selector}`)
-        .dataset
-        .payload
-    )
+    const data = document
+      .querySelector(`#${selector}`)
+      .dataset
+    const rawData = JSON.parse(data.payload)
+    const yMin = data.ymin
+    const yMax = data.ymax
     new Chartkick.LineChart(
       selector, 
-      data, 
+      rawData, 
       {
         points: false,
         colors: ["#b00", "#666"],
         thousands: " ",
-        decimal: ","
+        decimal: ",",
+        suffix: "€",
+        min: yMin,
+        max: yMax,
+        label: "BTC-EUR",
+        yAxes: [  {
+          gridLines: {
+            display: false,
+          },
+      }]
       })
   }
 });

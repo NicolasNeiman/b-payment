@@ -17,6 +17,8 @@ class PagesController < ApplicationController
         @data[exchange_rate.date] = exchange_rate.exchange_rate
       end
     end
+    @ymin = (@data.values.min * 0.95).round
+    @ymax = (@data.values.max * 1.05).round
     # raise
   end
 end
