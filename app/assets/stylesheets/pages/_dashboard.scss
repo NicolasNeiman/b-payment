@@ -84,7 +84,7 @@
 }
 
 .white-circle {
-  fill: rgba(255, 255, 255, 0.653);
+  // fill: rgba(255, 255, 255, 0.653);
   stroke: white;
   stroke-dasharray: 422, 0;
   /* transition: all 1.5s linear; */
@@ -102,4 +102,15 @@
 .circle-text {
   z-index: 2;
   margin: 0;
+}
+
+.fa-rocket {
+  color: black !important;
+  font-size: 35px;
+}
+
+.plot-col {
+  height: 100vh;
+  position: sticky;
+  top: 0;
 }
