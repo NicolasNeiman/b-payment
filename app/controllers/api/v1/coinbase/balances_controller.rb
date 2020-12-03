@@ -1,3 +1,4 @@
+
 class Api::V1::Coinbase::BalancesController < Api::V1::BaseController
   def show
     user = User.find_by!(email: user_params[:email])
