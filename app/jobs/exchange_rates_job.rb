@@ -17,7 +17,7 @@ class ExchangeRatesJob < ApplicationJob
   private
 
   def url
-    "https://api.coinbase.com/v2/prices/BTC-USD/spot"
+    "https://api.coinbase.com/v2/prices/BTC-EUR/spot"
   end
 
   def headers
