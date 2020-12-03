@@ -1,6 +1,11 @@
 h2 {
   font-size: 50px;
   margin: 50px 0;
+  color: white;
+
+  span {
+    background-color: black;
+  }
 }
 
 h3 {
@@ -8,3 +13,5 @@ h3 {
   margin: 30px 0;
   font-weight: 700;
 }
+
+

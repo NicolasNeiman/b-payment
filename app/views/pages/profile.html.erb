@@ -1,8 +1,9 @@
 <div class="page-container">
+  <h2><span>Profile</span></h2>
   <div class="row">
     <div class="col-9 d-flex flex-column">
       <% if current_user.all_set? %>
-        <h2>Hello <%= current_user.name %>,</h2>
+        <h3>Hello <%= current_user.name %>,</h3>
           <button class="all-set-alert d-flex justify-content-between align-items-center pr-4 base-btn coinbase-btn">
             <%= image_tag 'logo-coinbase-white.svg', class: "coinbase-logo" %>
             <%= image_tag 'valid-sign.svg', class: "validation-sign" %>
@@ -15,7 +16,6 @@
             <%= image_tag 'non-valid-sign.svg', class: "validation-sign" %>
             One more step!
           </button>
-        <br>
         <br>
         <div class="paypal-missing-alert">
           In order to use our extension, go to your coinbase account and connect your paypal.

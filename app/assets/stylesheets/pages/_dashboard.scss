@@ -1,4 +1,101 @@
 .figures {
   font-size: 30px;
   font-weight: 700;
+  z-index: 2;
+}
+
+.card-product {
+  width: 380px;
+  height: 80px;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.653);
+  border-bottom: 1px solid white;
+  border-radius: 2px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.753);
+  }
+}
+
+.fa-exchange-alt:before {
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.fa-exchange-alt {
+  font-size: 20px;
+  color: black;
+
+  &:hover {
+    animation: rotation-right 0.5s ease-in-out;
+    // animation: ease-in-out 1s;
+  }
+}
+
+@keyframes rotation-right {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: black;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  z-index: 2;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.number-transactions {
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.circle-shape {
+  width: 160px;
+  height: 160px;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.white-circle {
+  fill: rgba(255, 255, 255, 0.653);
+  stroke: white;
+  stroke-dasharray: 422, 0;
+  /* transition: all 1.5s linear; */
+  z-index: 1;
+  stroke-width: 5;
+  stroke-dashoffset: 48;
+  transition: all 2.35s linear;
+  transition-duration: 1s;
+
+  &:hover {
+    stroke-dasharray: 15, 310;
+  }
+}
+
+.circle-text {
+  z-index: 2;
+  margin: 0;
 }
