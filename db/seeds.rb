@@ -5,22 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "deleting all transactions"
-
-Transaction.delete_all
-
-puts "the seed begins"
-
-Money.add_rate("USD", "BTC", 0.000052)
-30.times do
-  amount = rand(100..10000)
- transac = Transaction.new(
-  user_id: User.last.id,
-  amount_cents: amount,
-  amount_currency: "USD",
-  bitcoin_amount_cents: (Money.us_dollar(amount).exchange_to("BTC")*100000000).to_f,
-  url: Faker::Internet.url,
-  )
-  transac.save!
+puts "Pulling historical bitcoin rates"
+headers = { "Content-Type" => "application/json" }
+start_date = Date.new(2019,1,1)
+end_date = Date.new(2020,12,2)
+(1..(end_date-start_date).to_i).each do |i|
+  date = (start_date + i).strftime('%Y-%m-%d')
+  puts "Pulling data for #{date} ..."
+  url = "https://api.coinbase.com/v2/prices/BTC-EUR/spot?date=#{date}"
+  coinbase_api_answer = HTTParty.get(url, headers: headers)
+  ExchangeRate.create(date: date,
+                      currency_in: coinbase_api_answer.dig("data", "base"),
+                      currency_out: coinbase_api_answer.dig("data", "currency"),
+                      exchange_rate: coinbase_api_answer.dig("data", "amount"))
+  sleep(0.2)
 end
-puts "the seed is finished"
