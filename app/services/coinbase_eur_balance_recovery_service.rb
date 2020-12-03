@@ -2,6 +2,7 @@ class CoinbaseEurBalanceRecoveryService < ApplicationService
   def initialize(user)
     @user = user
     CoinbaseRefreshTokenRecoveryService.call(@user)
+    @balance = nil
   end
 
   def call
@@ -17,7 +18,13 @@ class CoinbaseEurBalanceRecoveryService < ApplicationService
       coinbase_api_answer = {}
     end
 
-    @balance = coinbase_api_answer.dig("data", "balance")
+    original_balance = coinbase_api_answer.dig("data", "balance")
+
+    unless original_balance.nil?
+      @balance = {
+        "EUR" => original_balance["amount"]
+      }
+    end
 
     return @balance
   end
