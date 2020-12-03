@@ -24,11 +24,30 @@ require("channels")
 
 // External imports
 import "bootstrap";
-
+import Chartkick from "chartkick"
+import Chart from "chart.js"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+  const plotDiv = document.getElementById('plot');
+  if (plotDiv) {
+    Chartkick.use(Chart)
+    const selector = 'chart-1'
+    const data = JSON.parse(
+      document
+        .querySelector(`#${selector}`)
+        .dataset
+        .payload
+    )
+    new Chartkick.LineChart(
+      selector, 
+      data, 
+      {
+        points: false,
+        colors: ["#b00", "#666"],
+        thousands: " ",
+        decimal: ","
+      })
+  }
 });
