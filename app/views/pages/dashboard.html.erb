@@ -5,8 +5,8 @@
       <h3>Hello <%= current_user.name %>  <i class="fas fa-rocket"></i></h3>
       <div class="d-flex w-100 justify-content-around">
         <div class="number-transactions">
-          <svg class="circle-shape">
-            <circle class="white-circle" cx="80" cy="80" r="75" fill="none" width="100%" height="100%"></circle>
+          <svg class="">
+            <circle class="" cx="80" cy="80" r="75" fill="none" width="100%" height="100%"></circle>
           </svg>
           <div class="d-flex flex-column text-center">
             <span class="figures"><%= current_user.transactions.count %></span>
@@ -14,8 +14,8 @@
           </div>
         </div>
         <div class="number-transactions">
-          <svg class="circle-shape">
-            <circle class="white-circle" cx="80" cy="80" r="75" fill="none" width="100%" height="100%"></circle>
+          <svg class="">
+            <circle class="" cx="80" cy="80" r="75" fill="none" width="100%" height="100%"></circle>
           </svg>
           <div class="circle-text d-flex flex-column text-center">
             <span class="figures"><%= '%.2f' % ( current_user.transactions.sum(:amount_cents).to_f / 100 ) %>€</span>
