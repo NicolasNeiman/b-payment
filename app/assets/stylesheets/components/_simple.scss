@@ -1,0 +1,34 @@
+h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 56px;
+  line-height: 95px;
+}
+
+.surligne {
+  color: white;
+  background: $yellow;
+  padding: 0 5px;
+}
+
+.ordi {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  position: absolute;
+  right: 0px;
+  bottom: -100px;
+}
+
+.ordi-image {
+  width: 500px;
+}
+
+.webstorelogo {
+  width: 100px;
+}
+// @media(max-width: 992px) {
+//   .ordi-app {
+//     width: 300px;
+//   }
+// }
