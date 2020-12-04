@@ -15,25 +15,52 @@
   </div>
 </div>
 
+  <div class="row p-5">
+    <div class="home-container text-center">
+      <h1>How it <span class="surligne">works</span></h1>
+      <div class="row">
+        <div class="col-4">
+          <%= image_tag 'easy.svg', class: "coinbase-logo" %>
+          <h3>Easy</h3>
+          <p class="m-0">Use the extension whenever you're shopping</p>
+        </div>
+        <div class="col-4">
+          <%= image_tag 'instantly.svg', class: "coinbase-logo" %>
+          <h3>Instant</h3>
+          <p class="m-0">B-payments extension allows you to pay instantly</p>
+        </div>
+        <div class="col-4">
+          <%= image_tag 'secure.svg', class: "coinbase-logo" %>
+          <h3>Secure</h3>
+          <p class="m-0">B-payments makes sure your data stays safe</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 <div class="row p-5">
-  <div class="home-container text-center">
-    <h1>How it <span class="surligne">works</span></h1>
+  <div class="home-container text-left">
+    <h1>It's <span class="surligne">simple</span></h1>
     <div class="row">
-      <div class="col-4">
-        <%= image_tag 'easy.svg', class: "coinbase-logo" %>
-        <h3>Easy</h3>
-        <p class="m-0">Use the extension whenever you're shopping</p>
+      <div class="col-6">
+        <div class="text-left d-flex flex-column">
+          <p>Go to the google ChromeWebStore and download our app,
+          don’t forget to pin it on your navigator. Log to you coinbase
+          account and choose something to buy on a webmarket place which
+          accept payments with paypal. Your transaction will be safe and
+          secure and charge with no fees.When you will proceed to your payment
+          our app will automatically sell your bitcoins into the exact amount of
+          your purchase.</p>
+          <div class="webstorelogo">
+            <%= image_tag 'logo-ChromeWebStore.png', height: '70px', class: "webstorelogo-image" %>
+          </div>
+        </div>
       </div>
-      <div class="col-4">
-        <%= image_tag 'instantly.svg', class: "coinbase-logo" %>
-        <h3>Instant</h3>
-        <p class="m-0">B-payments extension allows you to pay instantly</p>
-      </div>
-      <div class="col-4">
-        <%= image_tag 'secure.svg', class: "coinbase-logo" %>
-        <h3>Secure</h3>
-        <p class="m-0">B-payments makes sure your data stays safe</p>
+      <div class="col-6">
+        <div class="ordi">
+          <%= image_tag 'ordi-app.svg', class: "ordi-image" %>
+        </div>
       </div>
     </div>
   </div>
@@ -43,28 +70,30 @@
 <div class="row p-5">
   <div class="home-container text-center">
     <h1>Stay <span class="surligne">in touch</span></h1>
-  </div>
-    <div class="col-6">
-      <h3>Our contacts</h3>
-      <p>Give us a call or drop by anytime, we endeavour to
+    <div class="row">
+      <div class="col-6 text-left d-flex flex-column">
+        <h3>Our contacts</h3>
+        <p>Give us a call or drop by anytime, we endeavour to
         answer all enquiries within 24 hours on business days.
         We will be happy to answer your questions.</p>
         <br>
-      <p>Our address :</p>
-      <h4>Paris, France</h4>
-      <p>Our mailbox :</p>
-      <h4>contact@b-payments.com</h4>
-      <div class="perso">
-       <%= image_tag 'perso-ordi.svg', class: "perso-ordi" %>
+        <p>Our address :</p>
+        <h4>Paris, France</h4>
+        <p>Our mailbox :</p>
+        <h4>contact@b-payments.com</h4>
+        <div class="perso">
+          <%= image_tag 'perso-ordi.svg', class: "perso-ordi" %>
+        </div>
       </div>
-    </div>
-  <div class="col-6">
-    <div class="contact-box d-flex flex-column justify-content-between">
-        <h3>You can contact us here</h3>
-        <input type="text" class="field" placeholder="Your Name">
-        <input type="text" class="field" placeholder="Your Email">
-        <textarea placeholder="Message" class="field"></textarea>
-        <button class="btncontactform">Send</button>
+      <div class="col-6">
+        <div class="contact-box d-flex flex-column justify-content-between">
+          <h3>You can contact us here</h3>
+          <input type="text" class="field" placeholder="Your Name">
+          <input type="text" class="field" placeholder="Your Email">
+          <textarea placeholder="Message" class="field"></textarea>
+          <button class="btncontactform">Send</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
