@@ -38,23 +38,23 @@
               <i class="fas fa-exchange-alt ml-4"></i>
               <div class="card-product-infos">
                 <h2><%= transaction.url %></h2>
-                <p><%= '%.2f' % ( transaction.amount_cents.to_f / 100 ) %>€ on <strong><%= transaction.created_at.strftime("%B %d, %Y at %H:%m") %></strong></p>
+                <p> <%= '%.5f' % (transaction.bitcoin_amount_cents.to_f / 1000000000)%><i class="fab fa-btc"></i> to <%= '%.2f' % ( transaction.amount_cents.to_f / 100 ) %>€ on <strong><%= transaction.created_at.strftime("%B %d, %Y at %H:%m") %></strong></p>
               </div>
             </div>
           <% end %>
         <% end %>
-      </div>    
+      </div>
     </div>
     <div class="col-6 plot-col d-flex w-100 text-center flex-column">
       <h3>Bitcoin price</h3>
       <div id="plot">
-        <div id="chart-1" 
-              style="height: 350px; width: 550px" 
+        <div id="chart-1"
+              style="height: 350px; width: 550px"
               data-payload='<%= @data.to_json %>'
               data-ymin='<%= @ymin %>'
               data-ymax='<%= @ymax %>'>
         </div>
       </div>
-    </div> 
-  </div>   
+    </div>
+  </div>
 </div>
