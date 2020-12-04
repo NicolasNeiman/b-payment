@@ -81,23 +81,32 @@
   left: 0;
   position: absolute;
   top: 0;
-}
-
-.white-circle {
-  // fill: rgba(255, 255, 255, 0.653);
-  stroke: white;
-  stroke-dasharray: 422, 0;
-  /* transition: all 1.5s linear; */
-  z-index: 1;
-  stroke-width: 5;
-  stroke-dashoffset: 48;
-  transition: all 2.35s linear;
-  transition-duration: 1s;
 
   &:hover {
     stroke-dasharray: 15, 310;
   }
 }
+
+.white-circle {
+  stroke: white;
+  z-index: 1;
+  stroke-width: 5;
+  // stroke-dashoffset: 48;
+  transition: all 2.35s linear;
+  transition-duration: 1s;
+  &:hover {
+    stroke-dasharray: 15, 310;
+  }
+}
+
+.white-circle-starts {
+  stroke-dasharray: 0, 400;
+}
+
+.white-circle-ends {
+  stroke-dasharray: 422, 0;
+}
+
 
 .circle-text {
   z-index: 2;

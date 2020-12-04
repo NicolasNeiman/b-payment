@@ -30,7 +30,9 @@ import Chart from "chart.js"
 // import { initSelect2 } from '../components/init_select2';
 
 import { plot } from '../components/plot';
+import { circle } from '../components/circle';
 
 document.addEventListener('turbolinks:load', () => {
   plot();
+  circle();
 });
